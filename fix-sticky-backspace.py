@@ -23,7 +23,7 @@ InputDevice.repeat = property(lambda self: _KbdInfo(*_input.ioctl_EVIOCGREP(self
 
 
 
-v = 0 if KEY_BACKSPACE in kbd.active_keys() else 1  #value of backspace key: up=0, down=1, hold=2 (for the inital value it's not possible and not that important to distiguish between down an hold)
+v = 0 if KEY_BACKSPACE in kbd.active_keys() else 1  #value of backspace key: up=0, down=1, hold=2 (for the inital value it's not possible and not that important to distiguish between down and hold)
 
 """
 returns if any backspace key event was read
