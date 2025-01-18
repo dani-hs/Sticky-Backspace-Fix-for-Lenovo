@@ -15,7 +15,7 @@ print(kbd)
 #---- When the issue is fixed in evdev this quirk can be removed
 from evdev import _input
 from collections import namedtuple
-_KbdInfo = namedtuple("KbdInfo", ["delay", "period"])
+_KbdInfo = namedtuple("KbdInfo", ["delay", "repeat"])
 del InputDevice.repeat
 InputDevice.repeat = property(lambda self: _KbdInfo(*_input.ioctl_EVIOCGREP(self.fd)))
 #---- End of quirk -------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ while True:
 			kbd.write(EV_KEY, KEY_BACKSPACE, 0)
 			kbd.write(EV_SYN, SYN_REPORT, 0)
 	elif v == 2:
-		sleep(kbd.repeat.period / 1000)
+		sleep(kbd.repeat.repeat / 1000)
 		if not read(0.001):	
 			kbd.write(EV_KEY, KEY_BACKSPACE, 0)
 			kbd.write(EV_SYN, SYN_REPORT, 0)	
