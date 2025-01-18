@@ -5,7 +5,7 @@ from evdev.ecodes import EV_KEY, KEY_BACKSPACE, EV_SYN, SYN_REPORT
 from select import select
 from time import sleep
 
-kbd = InputDevice('/dev/input/event4')
+kbd = InputDevice('/dev/input/event4') # Here we have to chose the right input device
 
 print(kbd)
 
